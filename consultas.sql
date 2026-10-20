@@ -10,7 +10,7 @@ WHERE estado NOT IN ('PR', 'SC', 'RS');
 
 -- b) 
 SELECT nome,
-    CASE estadocivil
+    CASE estado_civil
         WHEN 'S' THEN 'Solteiro(a)'
         WHEN 'C' THEN 'Casado(a)'
         WHEN 'D' THEN 'Divorciado(a)'
