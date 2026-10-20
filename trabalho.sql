@@ -7,7 +7,7 @@ CREATE TABLE cliente (
     cidade VARCHAR(100),
     estado VARCHAR(100),
     genero CHAR(1),
-    estado_civil VARCHAR(20),
+    estadocivil VARCHAR(20),
     dt_nascimento DATE
 );
 
