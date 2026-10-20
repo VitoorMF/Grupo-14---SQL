@@ -22,16 +22,16 @@ WHERE cidade = 'Niteroi';
 
 -- c) 
 SELECT nome
-FROM cliente
-WHERE cod_cliente NOT IN (
-    SELECT cod_cliente
-    FROM compra
-    WHERE YEAR(data_compra) = 2024
+FROM cliente c
+WHERE NOT EXISTS (
+    SELECT 1 FROM compra co
+    WHERE co.cod_cliente = c.cod_cliente
+      AND YEAR(co.data_compra) = 2024
 );
 
 
 -- d)
-SELECT 
+SELECT DISTINCT
     c.nome AS nome_cliente,
     f.nome AS nome_funcionario,
     fab.nome AS marca_produto
