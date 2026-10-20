@@ -2,12 +2,12 @@ CREATE DATABASE vitin;
 USE vitin;
 
 CREATE TABLE cliente (
-    cod_cliente INT PRIMARY KEY,
+    cod_cliente INT NOT NULL PRIMARY KEY,
     nome VARCHAR(100),
     cidade VARCHAR(100),
     estado VARCHAR(100),
     genero CHAR(1),
-    estadocivil VARCHAR(20),
+    estado_civil VARCHAR(20),
     dt_nascimento DATE
 );
 
@@ -25,7 +25,7 @@ CREATE TABLE funcionario (
     dt_nascimento DATE,
     estado_civil VARCHAR(20),
     cidade VARCHAR(100),
-    estado VARCHAR(100),
+    estado CHAR(2),
     cargo VARCHAR(100)
 );
 
@@ -34,7 +34,7 @@ CREATE TABLE compra (
     hora TIME,
     data_compra DATE,
     cod_cliente INT,
-    cod_funcionario INT,
+    cod_funcionario INT NOT NULL,
     
     FOREIGN KEY (cod_cliente)
     REFERENCES cliente(cod_cliente),
@@ -48,7 +48,7 @@ CREATE TABLE produto (
     nome VARCHAR(100),
     descricao VARCHAR(100),
     preco DECIMAL(10, 2),
-    cod_fabricante INT,
+    cod_fabricante INT NOT NULL,
     
     FOREIGN KEY (cod_fabricante)
     REFERENCES fabricante(cod_fabricante)
