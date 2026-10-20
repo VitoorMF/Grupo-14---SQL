@@ -57,7 +57,7 @@ CREATE TABLE produto (
 CREATE TABLE compra_produto (
     cod_compra INT,
     cod_produto INT,
-    qtd INT,
+    qnt_produto INT,
     valor_desconto DECIMAL(10, 2),
     PRIMARY KEY (cod_compra, cod_produto),
 
