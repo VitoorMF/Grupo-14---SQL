@@ -25,7 +25,8 @@ CREATE TABLE funcionario (
     dt_nascimento DATE,
     estado_civil VARCHAR(20),
     cidade VARCHAR(100),
-    estado VARCHAR(100)
+    estado VARCHAR(100),
+    cargo VARCHAR(100)
 );
 
 CREATE TABLE compra (
@@ -34,10 +35,35 @@ CREATE TABLE compra (
     data_compra DATE,
     cod_cliente INT,
     cod_funcionario INT,
-
+    
     FOREIGN KEY (cod_cliente)
-        REFERENCES cliente(cod_cliente),
-
+    REFERENCES cliente(cod_cliente),
+    
     FOREIGN KEY (cod_funcionario)
-        REFERENCES funcionario(cod_funcionario)
+    REFERENCES funcionario(cod_funcionario)
+);
+
+CREATE TABLE produto (
+    cod_produto INT PRIMARY KEY,
+    nome VARCHAR(100),
+    descricao VARCHAR(100),
+    preco DECIMAL(10, 2),
+    cod_fabricante INT,
+    
+    FOREIGN KEY (cod_fabricante)
+    REFERENCES fabricante(cod_fabricante)
+);
+
+CREATE TABLE compra_produto (
+    cod_compra INT,
+    cod_produto INT,
+    qtd INT,
+    valor_desconto DECIMAL(10, 2),
+    PRIMARY KEY (cod_compra, cod_produto),
+
+    FOREIGN KEY (cod_compra)
+    REFERENCES compra(cod_compra),
+
+    FOREIGN KEY (cod_produto)
+    REFERENCES produto(cod_produto)
 );
