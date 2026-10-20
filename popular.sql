@@ -27,7 +27,7 @@ INSERT INTO produto (cod_produto, nome, descricao, preco, cod_fabricante) VALUES
 (11, 'Caderno de Desenho',    'A4, 50 folhas',              10.00, 4);
 
 -- CLIENTE (regioes diferentes; 3 clientes de Niteroi)
-INSERT INTO cliente (cod_cliente, nome, cidade, estado, genero, estadocivil, dt_nascimento) VALUES
+INSERT INTO cliente (cod_cliente, nome, cidade, estado, genero, estado_civil, dt_nascimento) VALUES
 (1,  'Ana Souza',        'Niteroi',        'RJ', 'F', 'S', '1998-03-12'),
 (2,  'Bruno Lima',       'Niteroi',        'RJ', 'M', 'C', '1985-07-25'),
 (3,  'Carla Mendes',     'Rio de Janeiro', 'RJ', 'F', 'D', '1979-11-02'),
